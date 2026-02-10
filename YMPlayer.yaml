@@ -603,4 +603,4 @@ cards:
       - condition: state
         entity: "1233"
         state: "12121"
-    text_only: true
+    text_only: true 
