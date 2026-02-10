@@ -25,4 +25,4 @@
 
 | Mushroom-Yandex-Station-Card | Custom Templates |
 | --- | --- |
-| 0.3.8 | 1.0.27 |
+| 0.3.8 - 0.3.8.2 | 1.0.27 |
