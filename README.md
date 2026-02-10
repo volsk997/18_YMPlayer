@@ -19,7 +19,7 @@
 > Заменить media_player.yandex_station_m00en2100jayck на свою колонку
 
 > [!IMPORTANT]
-> Файлы с расширением .jinja разместить в папке **/custom_templates**, после чего выполнить действие **action: homeassistant.reload_custom_templates**
+> [Файлы](https://github.com/volsk997/custom_templates) с расширением .jinja разместить в папке **/custom_templates**, после чего выполнить действие **action: homeassistant.reload_custom_templates**
 
 
 
