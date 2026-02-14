@@ -129,14 +129,16 @@ cards:
               {% if state_attr(config.entity,'media_title') is none or 
               state_attr(config.entity,'media_title') == ''%}  Неизвестно
 
-              {% else%} {{state_attr(config.entity, 'media_title')}}
+              {% else%} {{state_attr(config.entity,
+              'media_title')|truncate(80)}}
 
               {% endif %}
             secondary: >
               {% if  state_attr(config.entity,'media_artist') is none %}
               Неизвестно
 
-              {% else%} {{state_attr(config.entity, 'media_artist')}}
+              {% else%} {{state_attr(config.entity,
+              'media_artist')|truncate(100)}}
 
               {% endif %}
             icon: ""
@@ -391,7 +393,7 @@ cards:
       cards:
         - type: heading
           icon: yandex:station-lite
-          heading: 18.20260210.001
+          heading: 18.20260214.001
           heading_style: title
           card_mod:
             style: |
@@ -589,18 +591,3 @@ cards:
               {% set icon_size = 30 %}
               {% set chip_spacing = 20 %}
               {% include 'fixed_bottom_bar.jinja' %}     
-  - type: markdown
-    content: |+
-      ** 0.3.7 **
-
-        1. Изменение вёрстки длительности (вспомогательны сенсор)
-
-      **0.3.6-2**
-
-      1. Поддержка низких разрешений ПК (Macbook Air aspect ratio ±2)
-
-    visibility:
-      - condition: state
-        entity: "1233"
-        state: "12121"
-    text_only: true 
