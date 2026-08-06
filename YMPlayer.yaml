@@ -1,6 +1,6 @@
 type: custom:bubble-card
 card_type: pop-up
-hash: "#yandex_mini"
+hash: '#yandex_mini'
 margin_top_mobile: auto
 margin_top_desktop: auto
 tap_action:
@@ -11,9 +11,9 @@ hold_action:
   action: none
 show_header: false
 close_by_clicking_outside: false
-backdrop_blur: "5"
-bg_blur: "100"
-bg_opacity: "50"
+backdrop_blur: '5'
+bg_blur: '100'
+bg_opacity: '50'
 button_type: name
 styles: |
   #root {
@@ -36,6 +36,21 @@ cards:
           action: none
         icon: yandex:station-mini-2
       - type: spacer
+      - type: template
+        entity: media_player.yandex_station_m00en2100jayck
+        double_tap_action:
+          action: none
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+        icon: mdi:information
+        card_mod:
+          style:
+            .: |
+              {% set hover = 'true' %}
+              {% set stating = 'false' %}
+              {% include 'chip_settings_style.jinja' %}
       - type: back
         card_mod:
           style:
@@ -67,7 +82,7 @@ cards:
         double_tap_action:
           action: none
         icon: yandex:station-mini-2
-        icon_color: "1"
+        icon_color: '1'
         card_mod:
           style:
             .: |
@@ -122,7 +137,7 @@ cards:
     conditions:
       - condition: state
         entity: binary_sensor.stantsiia_mini_gostinaia_dlitelnost
-        state: "on"
+        state: 'on'
     card:
       entity: media_player.yandex_station_m00en2100jayck
       tap_action: none
@@ -249,10 +264,153 @@ cards:
           ha-card {
             background: transparent !important;
             opacity: 100%;
-            margin-top: 0px;
+            margin: 0px 20px !important;
             border-width: 0px;
             margin: 0px 0px 0px;
           }
+  - type: custom:horizontal-stack-in-card
+    cards:
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        entity: media_player.yandex_station_m00en2100jayck
+        grid_options:
+          columns: 12
+          rows: auto
+        icon: mdi:account-music
+        tap_action:
+          action: perform-action
+          perform_action: media_player.play_media
+          target:
+            entity_id: media_player.yandex_station_m00en2100jayck
+          data:
+            media_content_type: command
+            media_content_id: другие треки этого исполнителя
+        vertical: true
+        icon_tap_action:
+          action: none
+        color: white
+        card_mod:
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        entity: media_player.yandex_station_m00en2100jayck
+        grid_options:
+          columns: 12
+          rows: auto
+        tap_action:
+          action: perform-action
+          perform_action: media_player.play_media
+          target:
+            entity_id: media_player.yandex_station_m00en2100jayck
+          data:
+            media_content_type: command
+            media_content_id: включи любимое
+        vertical: true
+        icon: mdi:heart-multiple
+        color: white
+        card_mod:
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none;
+            }
+      - type: custom:mushroom-template-card
+        features_position: bottom
+        entity: media_player.yandex_station_m00en2100jayck
+        grid_options:
+          columns: 12
+          rows: auto
+        icon: mdi:chart-timeline-variant-shimmer
+        tap_action:
+          action: perform-action
+          perform_action: media_player.play_media
+          target:
+            entity_id: media_player.yandex_station_m00en2100jayck
+          data:
+            media_content_type: command
+            media_content_id: включи популярное
+        vertical: true
+        icon_tap_action:
+          action: none
+        color: white
+        card_mod:
+          style: |
+            ha-card {
+              zoom: 1.5;
+              background: none;
+            }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: binary_sensor.multirum_sostoianie
+            state: 'off'
+        card:
+          type: custom:mushroom-template-card
+          features_position: bottom
+          entity: media_player.yandex_station_m00en2100jayck
+          grid_options:
+            columns: 12
+            rows: auto
+          icon: mdi:play-box-multiple
+          tap_action:
+            action: perform-action
+            perform_action: media_player.play_media
+            target:
+              entity_id: media_player.yandex_station_m00en2100jayck
+            data:
+              media_content_type: command
+              media_content_id: продолжи везде
+          vertical: true
+          icon_tap_action:
+            action: none
+          color: white
+          card_mod:
+            style: |
+              ha-card {
+                zoom: 1.5;
+                background: none;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: binary_sensor.multirum_sostoianie
+            state: 'on'
+        card:
+          type: custom:mushroom-template-card
+          features_position: bottom
+          entity: media_player.yandex_station_m00en2100jayck
+          grid_options:
+            columns: 12
+            rows: auto
+          icon: mdi:arrow-down
+          tap_action:
+            action: perform-action
+            perform_action: media_player.play_media
+            target:
+              entity_id: media_player.yandex_station_m00en2100jayck
+            data:
+              media_content_type: command
+              media_content_id: продолжи в гостиной
+          vertical: true
+          icon_tap_action:
+            action: none
+          color: white
+          card_mod:
+            style: |
+              ha-card {
+                zoom: 1.5;
+                background: none;
+              }
+    card_mod:
+      style: |
+        ha-card {
+         background: none !important;
+
+        }
 popup_mode: default
 card_layout: large
-slide_to_close_distance: "500"
+slide_to_close_distance: '500'
