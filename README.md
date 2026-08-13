@@ -3,8 +3,7 @@
 
 # 🍄 Mushroom-Yandex-Station-Card
 
-<img width="812" height="1192" alt="Снимок экрана 2026-02-10 в 09 18 57" src="https://github.com/user-attachments/assets/4ce4a6c7-943f-44ce-a45b-5ae474f78eb5" />
-
+<img width="426" height="588" alt="Снимок экрана — 2026-08-13 в 20 57 29" src="https://github.com/user-attachments/assets/f10500b1-56df-454a-a6ed-149a8121449a" />
 
 ## Карта для Яндекс плеера на базе нескольких карт:
  1. [Mushrooms](https://github.com/piitaya/lovelace-mushroom)
